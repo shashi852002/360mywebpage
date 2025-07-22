@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unique Developer Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      color: #333;
+    }
+    header {
+      background: #1f2937;
+      color: #fff;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #fbbf24;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 3rem 2rem;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .skill {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+    }
+    .circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #ddd;
+      line-height: 80px;
+      margin: 0 auto 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+    .projects, .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .project, .testimonial {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    form button {
+      background: #1f2937;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Unique Portfolio</h1>
+    <p>Full Stack Developer | UI/UX Designer | Tech Enthusiast</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p style="max-width: 800px; margin: auto; text-align: center;">
+      I'm a passionate developer with experience in front-end and back-end technologies. I love solving problems and turning ideas into reality. My interests range from AI to UI/UX design and everything in between.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill"><div class="circle" data-skill="90">HTML</div></div>
+      <div class="skill"><div class="circle" data-skill="85">CSS</div></div>
+      <div class="skill"><div class="circle" data-skill="80">JavaScript</div></div>
+      <div class="skill"><div class="circle" data-skill="75">React</div></div>
+      <div class="skill"><div class="circle" data-skill="70">Node.js</div></div>
+      <div class="skill"><div class="circle" data-skill="65">MongoDB</div></div>
+      <div class="skill"><div class="circle" data-skill="60">Python</div></div>
+      <div class="skill"><div class="circle" data-skill="55">Figma</div></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Project One</h3>
+        <p>A unique full-stack web app built using React and Node.js.</p>
+      </div>
+      <div class="project">
+        <h3>Project Two</h3>
+        <p>Interactive design system built with Figma and CSS animations.</p>
+      </div>
+      <div class="project">
+        <h3>Project Three</h3>
+        <p>AI chatbot integrated with OpenAI APIs for smart answers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>"An amazing developer who delivers above expectations!"</p>
+        <strong>- Client A</strong>
+      </div>
+      <div class="testimonial">
+        <p>"Truly creative and detail-oriented, a pleasure to work with."</p>
+        <strong>- Client B</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      alert("Thanks! I'll get back to you soon.");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".circle").forEach(circle => {
+        const skill = parseInt(circle.dataset.skill);
+        let value = 0;
+        const interval = setInterval(() => {
+          if (value < skill) {
+            value++;
+            circle.textContent = value + "%";
+          } else {
+            clearInterval(interval);
+          }
+        }, 20);
+      });
+    });
+  </script>
+</body>
+</html>
